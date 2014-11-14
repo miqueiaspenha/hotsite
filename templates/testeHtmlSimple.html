@@ -1,0 +1,16 @@
+<form action="" method="post">
+	{% for field in form %}
+		{{field.label}}
+		{{field(class='ashuaushau')}}
+		{% if field.errors %}
+			{% for error in field.errors %}<span class='error'>{{ error }}</span>{% endfor %}
+		{% endif %}
+		<br/>
+		<br/>
+	{% endfor %}
+  <input type="submit" value="Submit">
+</form>
+
+{% for message in get_flashed_messages() %}
+	<div>{{message}}</div>
+{% endfor %}
